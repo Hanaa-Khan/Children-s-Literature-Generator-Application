@@ -1,0 +1,482 @@
+/* =============== FONTS ================ */
+
+@font-face {
+  font-family: "TAN Harmoni";
+  src: url("/static/fonts/TanHarmoni-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Le Jour Script";
+  src: url("/static/fonts/LeJourScript-Eaqpg.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Baloo2-ExtraBold";
+  src: url("/static/fonts/Baloo2-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Baloo2";
+  src: url("/static/fonts/Baloo2-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Dancing";
+  src: url("/static/fonts/Dancing Script.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/static/fonts/Nunito-VariableFont_wght.ttf") format("truetype");
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "TAN Harmoni", serif;
+  background-color: #F2F7FB;
+  color: #ffa114;
+  margin: 0;
+  padding: 1rem;
+}
+
+form {
+  padding: 1rem;
+}
+
+p {
+  color: black;
+  font-family: "Nunito";
+}
+li {
+  color: black;
+  font-family: "Nunito";
+}
+
+label {
+  color: #446b72;
+  font-weight: bold;
+  font-family: "Nunito";
+}
+
+/* =============== HEADER =============== */
+
+.page-header {
+  background-color: #CFE3F6;
+  text-align: center;
+  padding: 1 rem;
+  border-radius: 15px;
+}
+
+.super-large-text {
+  font-family: "Baloo2-ExtraBold";
+  font-size: clamp(3rem, 6vw, 6rem);
+  color: #CC5500;
+  letter-spacing: -2px;
+  line-height: 0.7;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Nunito";
+  color: #2C4A7A;
+}
+
+h2 {
+  font-family: "Dancing";
+  color: #F6B87E;
+  text-align: center;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.5;
+}
+
+/* ================= BUTTONS & INPUTS ====================== */
+
+button {
+  background-color: #F6B87E;
+  font-family: "Nunito";
+  border-radius: 10px;
+  font-weight: bold;
+  color: #4F7DB3;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  margin: 0.5rem auto;
+  border: none;
+  cursor: pointer;
+  display: block;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  font-size: 16px; 
+}
+
+.story-image {
+  width: 100%;          
+  max-width: 320px;     
+  height: auto;         
+  display: block;
+  margin-top: 0.5rem;
+  margin: 0.5rem auto;  
+}
+
+
+/* ========================= CONSENT FORM ========================= */
+#myFormContainer {
+  max-width: 600px;     
+  width: 90%;           
+  margin: 0 auto;       
+}
+
+.consent-form {
+  border: 1px solid grey;
+  padding: 1rem;
+  width: 100%;
+  max-width: 900px;
+  height: 150px;
+  overflow-y: scroll;
+  margin: 0 auto;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+
+.consent-form-container {
+  width: 100%;
+  max-width: 520px; 
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.consent-box {
+  background: #f5f9ff;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.spacing {
+  margin-bottom: 20px;
+}
+
+.error-text {
+  color: #d33;
+  font-size: 0.85rem;
+  display: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 14px;
+  border: none;
+  background: #4f7db3;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+
+
+/* ========================= STORY VIEW LAYOUT =========================== */
+
+.story-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 2rem auto;
+}
+
+.story-text {
+  flex: 1;
+}
+
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.image-gallery img {
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ====================== CREATE STORY PAGE ========================== */
+
+.create-story h1 {
+  font-family: "Baloo2", cursive;
+  color: #2C4A7A;
+  margin-bottom: 2rem;
+}
+
+.create-story .section-title {
+  font-family: "Nunito", sans-serif;
+  color: #2C4A7A;
+  margin: 2.5rem 0 1.5rem;
+}
+
+.create-story .options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.create-story .option-card {
+  background: #F2F7FB;
+  border: 2px solid #CFE3F6;
+  border-radius: 18px;
+  padding: 1.25rem;
+}
+
+.create-story .option-card h3 {
+  font-family: "Nunito", sans-serif;
+  color: #2C4A7A;
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+}
+
+.create-story .bubble-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.create-story .bubble {
+  background: #EAF3FB;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.create-story .bubble input {
+  display: none;
+}
+
+.create-story .bubble:hover {
+  background: #D7E9F9;
+}
+
+.create-story .bubble.selected {
+  background: #CFE3F6;
+  border-color: #4F7DB3;
+  box-shadow: 0 4px 10px rgba(79, 125, 179, 0.2);
+  transform: scale(1.05);
+}
+
+.create-story .input-bubble input,
+.create-story .input-bubble textarea,
+.create-story .input-bubble select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #CFE3F6;
+  font-size: 0.9rem;
+}
+
+.create-story button[type="submit"] {
+  background: #F6B87E;
+  color: #2C4A7A;
+  padding: 14px 36px;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.create-story button[type="submit"]:hover {
+  background: #F3A861;
+}
+/* ======================= VIEW STORY PAGE ======================= */
+
+.view-story .loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #3498db;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+  margin: 3rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.view-story .story-section {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  align-items: flex-start;
+  flex-wrap: wrap; 
+}
+
+.view-story .story-text-container {
+  flex: 1 1 0;       
+  min-width: 0;      
+}
+
+.view-story .section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.view-story .section-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.view-story .beginning-icon { background: #4CAF50; }
+.view-story .middle-icon { background: #2196F3; }
+.view-story .end-icon { background: #FF9800; }
+
+.view-story .section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.view-story .story-text {
+  white-space: pre-line;
+  line-height: 1.6;
+  color: #444;
+  font-size: 1rem;
+  font-family: "Nunito";
+  text-align: left;
+}
+
+.view-story .image-container {
+  flex: 0 0 300px;  
+  text-align: center;
+}
+
+.view-story .story-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  height: auto;
+}
+
+.view-story .image-caption {
+  margin-top: 8px;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* ========================== Download and Print PDF =========================== */
+@media print {
+    #feedback-form-container {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 14pt;
+    }
+    
+    .story-section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* ========================== MOBILE BREAKPOINT =========================== */
+@media (max-width: 768px) {
+  .story-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-gallery img {
+    width: 140px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .create-story .option-card {
+    padding: 1rem;
+  }
+
+  .create-story button[type="submit"] {
+    width: 100%;
+  }
+
+  .view-story .story-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .view-story .story-text-container {
+    max-height: none; 
+    overflow-y: visible;
+  }
+
+  .view-story .story-image {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .story-image {
+    max-width: 380px;
+  }
+}

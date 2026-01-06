@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="story-header">
+  <div class="story-text">
+    <h1>Create your very own personalised children's illustrated story!</h1>
+    <h1>After enjoying your story, please complete the short feedback survey. Your feedback is important for this research project and will help us make these stories even better for children!</h1>
+  </div>
+  
+</div>
+
+<!-- Flash messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<button id="showFormBtn">Create Story!</button>
+
+<div id="myFormContainer" class="form-wrapper" style="display: none;">
+  <form action="/" method="POST" onsubmit="return validateConsent()" class="consent-form-container">
+
+    <div class="form-group">
+      <label for="terms">Consent form Terms and Conditions:</label>
+      <div id="terms" class="consent-box">
+        <p>Welcome to our study. Please review each statement and sign if you agree and consent:</p>
+        <ul>
+          <li>I have been provided with information explaining what participation in this project involves and that I am free to withdraw my consent within the next two weeks without explanation.</li>
+          <li>I understand the data I provide will be treated as confidential, and that on completion of the project my name or other identifying information will not be disclosed in any presentation or publication of the research and will be deleted once research is complete.</li>
+          <li>I understand that my consent to use the data I provide is conditional upon the University of Bath complying with its duties and obligations under current data protection legislation.</li>
+          <li>I hereby fully and freely consent to my participation in this project.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="spacing">
+      <input type="checkbox" id="consent" name="consent">
+      <label for="consent">
+        I confirm I have read and accept the terms and conditions of this research study.
+      </label>
+    </div>
+    <div id="consentError" class="error-text">You must give consent before continuing.</div>
+
+
+    <div class="form-group">
+      <label for="first_name">First Name</label>
+      <input type="text" name="first_name" id="first_name">
+      <div id="firstNameError" class="error-text">First name is required.</div>
+
+      <label for="last_name">Last Name</label>
+      <input type="text" name="last_name" id="last_name">
+      <div id="lastNameError" class="error-text">Last name is required.</div>
+
+      <label for="event_date">Select a date</label>
+      <input type="date" id="event_date" name="event_date">
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div>
+
+<img 
+  src="{{ url_for('static', filename='holding hands.png') }}" 
+  alt="Holding hands"
+  class="story-image"
+>
+
+<script>
+    const showFormBtn = document.getElementById('showFormBtn');
+    const formContainer = document.getElementById('myFormContainer');
+
+    showFormBtn.addEventListener('click', function() {
+        // Show the form
+        formContainer.style.display = 'block';
+        // Hide the button
+        showFormBtn.style.display = 'none';
+    });
+
+    // Set default date to today
+    document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = (today.getMonth() + 1).toString().padStart(2, '0');
+        const day = today.getDate().toString().padStart(2, '0');
+        document.getElementById('event_date').value = `${year}-${month}-${day}`;
+    });
+
+    // Validate form before submit
+    function validateConsent() {
+        let valid = true;
+
+        const checkbox = document.getElementById('consent');
+        const firstName = document.getElementById('first_name');
+        const lastName = document.getElementById('last_name');
+
+        const consentError = document.getElementById('consentError');
+        const firstNameError = document.getElementById('firstNameError');
+        const lastNameError = document.getElementById('lastNameError');
+
+        // Reset errors
+        consentError.style.display = 'none';
+        firstNameError.style.display = 'none';
+        lastNameError.style.display = 'none';
+        firstName.style.border = '';
+        lastName.style.border = '';
+
+        if (!firstName.value.trim()) {
+            firstNameError.style.display = 'block';
+            firstName.style.border = '2px solid red';
+            valid = false;
+        }
+        if (!lastName.value.trim()) {
+            lastNameError.style.display = 'block';
+            lastName.style.border = '2px solid red';
+            valid = false;
+        }
+        if (!checkbox.checked) {
+            consentError.style.display = 'block';
+            valid = false;
+        }
+
+        return valid;
+    }
+</script>
+
+{% endblock %}
